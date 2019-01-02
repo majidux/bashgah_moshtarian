@@ -18,8 +18,8 @@ export default class App extends Component<Props> {
                     {/*<NewTicket/>*/}
                     {/*<ProductExpanded/>*/}
                     {/*<ProductFeatureExpanded/>*/}
-                    {/*<Suggestion/>*/}
-                    <PeopleCommentsPage/>
+                    <Suggestion/>
+                    {/*<PeopleCommentsPage/>*/}
             </View>
         );
     }
