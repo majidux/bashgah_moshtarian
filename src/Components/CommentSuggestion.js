@@ -7,48 +7,54 @@ export default class CommentSuggestion extends Component {
     render() {
         const EmptyList = () => {
             return (
-                <View style={{paddingTop: 20,justifyContent:'center'}}>
+                <View style={{paddingTop: 20, justifyContent: 'center'}}>
                     <Text style={{fontSize: 20}}>کامنتی یافت نشد</Text>
                 </View>
             );
         };
         return (
-            <View style={styles.commentSection}>
+            <View style={{flex: 1}}>
                 
                 <FlatList
                     data={suggestionData}
                     keyExtractor={(item) => item.title}
                     ListEmptyComponent={EmptyList}
                     renderItem={({item}) =>
-                        
-                        <View style={styles.oneComment}>
-                            <View style={styles.votes}>
-                                <View style={styles.voteCount}><Text>{item.voteNumber}</Text></View>
-                                <TouchableOpacity style={[styles.giveVote, styles.Orangebgcolor]}>
-                                    <View>
-                                        <Text style={styles.whiteFont}>{item.giveVote}</Text>
-                                    </View>
-                                </TouchableOpacity>
-                            </View>
-                            <View style={styles.commentText}>
-                                <View style={styles.titleComment}><Text
-                                    style={[styles.fontSize20, styles.boldFont]}>{item.title}</Text></View>
-                                <View style={styles.bodyComment}><Text
-                                    style={{lineHeight: 22}}>{item.suggest}</Text></View>
-                                <View style={styles.footerComment}>
-                                    <View style={styles.footerCommentInside}>
-                                        <View style={styles.footerCommentText}>
-                                            <Text style={styles.boldFont}>{item.numbersOfVotes}</Text>
+                        <View style={styles.commentSection}>
+                            
+                            <View style={styles.oneComment}>
+                                <View style={styles.votes}>
+                                    <View style={styles.voteCount}><Text>{item.voteNumber}</Text></View>
+                                    <TouchableOpacity style={[styles.giveVote, styles.Orangebgcolor]}>
+                                        <View>
+                                            <Text style={styles.whiteFont}>{item.giveVote}</Text>
                                         </View>
-                                        <View style={styles.footerCommentText}>
-                                            <Text style={styles.boldFont}>{item.category}</Text>
-                                        </View>
-                                        <View style={styles.footerCommentText}>
-                                            <Text style={styles.boldFont}>{item.suggestCritic}</Text>
+                                    </TouchableOpacity>
+                                </View>
+                                <View style={styles.commentText}>
+                                    <View style={styles.titleComment}><Text
+                                        style={[styles.fontSize20, styles.boldFont]}>{item.title}</Text></View>
+                                    <View style={styles.bodyComment}><Text
+                                        style={{lineHeight: 22}}>{item.suggest}</Text></View>
+                                    <View style={styles.footerComment}>
+                                        <View style={styles.footerCommentInside}>
+                                            <View style={styles.footerCommentText}>
+                                                <Text style={styles.boldFont}>{item.numbersOfVotes}</Text>
+                                            </View>
+                                            <View style={styles.footerCommentText}>
+                                                <Text style={styles.boldFont}>{item.category}</Text>
+                                            </View>
+                                            <View style={styles.footerCommentText}>
+                                                <Text style={styles.boldFont}>{item.suggestCritic}</Text>
+                                            </View>
                                         </View>
                                     </View>
                                 </View>
+                            
+                            
                             </View>
+                            
+                            <ReplyCommentSuggestion/>
                         </View>
                         
                         
