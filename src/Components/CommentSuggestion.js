@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, FlatList, TouchableOpacity} from 'react-native';
 import ReplyCommentSuggestion from "./ReplyCommentSuggestion";
 import suggestionData from '../Components/DataSuggestion';
+import replySuggestion from './DataReplyCommentSuggestion';
 
 export default class CommentSuggestion extends Component {
     render() {
@@ -54,7 +55,10 @@ export default class CommentSuggestion extends Component {
                             
                             </View>
                             
-                            <ReplyCommentSuggestion/>
+                            
+                            
+                            <ReplyCommentSuggestion reply={item.Replies}/>
+                            
                         </View>
                         
                         

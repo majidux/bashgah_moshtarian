@@ -1,10 +1,21 @@
-export default replySuggestionData=[
-    {
-        key:1,
-        start:'شروع شده',
-        replierName:'ندا اصلاحی',
-        replierTitle:'مدیر محصول پیام گستر',
-        image:require('../Assets/image/profilePic.png')
-        
-    }
-];
+export default replySuggestion ={
+   
+   
+   image:[
+       require('../Assets/image/profilePic.png'),
+       require('../Assets/image/profile.png'),
+
+   ],
+   
+    // {
+    //     image:require('../Assets/image/profilePic.png'),
+    //     start:'شروع شده',
+    //
+    // },
+    // {
+    //
+    //     image:require('../Assets/image/profilePic.png'),
+    //     start:'شروع نشده',
+    //
+    // }
+};

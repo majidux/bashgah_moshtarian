@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, ScrollView, TouchableOpacity} from 'react-native';
+import {Platform,View, Text, StyleSheet, Image, ScrollView, TouchableOpacity,TextInput} from 'react-native';
 import ReplyPeopleComment from "./ReplyPeopleComment";
 
 export default class CommentSuggestion extends Component {
@@ -45,7 +45,7 @@ export default class CommentSuggestion extends Component {
                     <View>
                         <View><Text style={{fontSize: 16, fontWeight: 'bold'}}>12 نظر</Text></View>
                         <View style={styles.messageSection}>
-                            <Text>نظر خود را بنویسید...</Text>
+                            <TextInput placeholder={'نظر خود را بنویسید ...'}></TextInput>
                         </View>
                         <View style={styles.sendButton}><Text style={{color: 'white'}}>ثبت</Text></View>
                     </View>
@@ -245,7 +245,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#dddddd',
         height: 160,
-        paddingTop: 10,
         paddingRight: 10
         
     },
