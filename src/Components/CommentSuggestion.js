@@ -56,9 +56,8 @@ export default class CommentSuggestion extends Component {
                             </View>
                             
                             
-                            
                             <ReplyCommentSuggestion reply={item.Replies}/>
-                            
+                        
                         </View>
                         
                         

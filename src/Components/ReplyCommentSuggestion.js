@@ -3,9 +3,11 @@ import {View, Text, StyleSheet, Image, FlatList} from 'react-native';
 import replySuggestion from './DataReplyCommentSuggestion';
 
 // let [image,start]=replySuggestion;
-let aar1 =[{name:'aaa',id:111},{name:'bbb',id:222}];
-let id = aar1.id;
-
+// let aar1 =[{name:'aaa',id:111},{name:'bbb',id:222}];
+// let id = aar1.id;
+let start = replySuggestion[0].start;
+let image = replySuggestion[0].image;
+let [];
 
 export default class ReplyCommentSuggestion extends Component {
     render() {
@@ -16,11 +18,11 @@ export default class ReplyCommentSuggestion extends Component {
                     <View style={styles.replyDetail}>
                         <View style={styles.paddings}>
                             <Image
-                                source={require('../Assets/image/profilePic.png')}
+                                source={image}
                             />
                         </View>
                         <View style={[styles.lightBluebgcolor, styles.paddings]}>
-                            <Text style={{color: 'white'}}>{id}</Text>
+                            <Text style={{color: 'white'}}>{start}</Text>
                         </View>
                         <View style={styles.paddings}>
                             <Text style={styles.orangeFontColor}> ندا اصلاحی (مدیر محصول پیام گستر)</Text>
