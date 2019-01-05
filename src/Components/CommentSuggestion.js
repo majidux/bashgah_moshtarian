@@ -6,13 +6,14 @@ import replySuggestion from './DataReplyCommentSuggestion';
 
 export default class CommentSuggestion extends Component {
     render() {
-        const EmptyList = () => {
-            return (
+        
+        const EmptyList = () =>
                 <View style={{paddingTop: 20, justifyContent: 'center'}}>
                     <Text style={{fontSize: 20}}>کامنتی یافت نشد</Text>
-                </View>
-            );
-        };
+                </View>;
+        
+
+        
         return (
             <View style={{flex: 1}}>
                 

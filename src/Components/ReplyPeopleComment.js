@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
+import replySuggestion from './DataReplyCommentSuggestion';
 
+let [reply]=replySuggestion;
 export default class ReplyPeopleComment extends Component {
     render() {
         return (
@@ -14,11 +16,11 @@ export default class ReplyPeopleComment extends Component {
                                 source={require('../Assets/image/profilePic.png')}
                             />
                         </View>
-                        <View style={[styles.lightBluebgcolor,styles.paddings]}>
-                            <Text style={{color:'white'}}> شروع شده </Text>
+                        <View style={[styles.lightBluebgcolor,styles.paddings,{paddingHorizontal: 5}]}>
+                            <Text style={{color:'white'}}>{reply.start}</Text>
                         </View>
                         <View style={styles.paddings}>
-                            <Text style={styles.orangeFontColor}> ندا اصلاحی (مدیر محصول پیام گستر)</Text>
+                            <Text style={styles.orangeFontColor}>{reply.responder}</Text>
                         </View>
                         <View style={styles.paddings}>
                             <Text> پاسخ داده است</Text>

@@ -1,233 +1,104 @@
 import React, {Component} from 'react';
-import {Platform,View, Text, StyleSheet, Image, ScrollView, TouchableOpacity,TextInput} from 'react-native';
+import {Platform, View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, TextInput,FlatList} from 'react-native';
 import ReplyPeopleComment from "./ReplyPeopleComment";
+import peopleCommentPageData from "./DataPeopleCommentPage";
+import peopleCommentPageData2 from "./DataPeopleCommentPage2";
 
+
+
+let [comment]=peopleCommentPageData2;
 export default class CommentSuggestion extends Component {
     render() {
+        
         return (
-            <View style={styles.commentSection}>
-                <ScrollView>
-                    <View style={styles.oneComment}>
-                        <View style={styles.votes}>
-                            <View style={styles.voteCount}><Text>۱۲۳ رای</Text></View>
-                            <TouchableOpacity style={[styles.giveVote, styles.Orangebgcolor]}>
-                                <View>
-                                    <Text style={styles.whiteFont}>رای بده</Text>
+            <FlatList
+                data={peopleCommentPageData}
+                keyExtractor={(item)=>item.title}
+                renderItem={({item}) =>
+                    <View style={styles.commentSection}>
+                        <View style={styles.oneComment}>
+                            <View style={styles.votes}>
+                                <View style={styles.voteCount}>
+                                    <Text>{item.voteNumber}</Text>
                                 </View>
+                                <TouchableOpacity style={[styles.giveVote, styles.Orangebgcolor]}>
+                                    <View>
+                                        <Text style={styles.whiteFont}>{item.giveVote}</Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </View>
+                            <View style={styles.commentText}>
+                                <View style={styles.titleComment}><Text
+                                    style={[styles.fontSize20, styles.boldFont]}>{item.title}</Text></View>
+                                <View style={styles.bodyComment}>
+                                    <Text style={{lineHeight: 22}}>{item.suggest}</Text>
+                                </View>
+                            </View>
+                        </View>
+        
+                        {/*Reply Comment*/}
+        
+        
+                        <ReplyPeopleComment/>
+        
+                        {/*Reply Comment End*/}
+        
+        
+                        <View>
+                            <View><Text style={{fontSize: 16, fontWeight: 'bold'}}>12 نظر</Text></View>
+                            <View style={styles.messageSection}>
+                                <TextInput placeholder={'نظر خود را بنویسید ...'}></TextInput>
+                            </View>
+                            <TouchableOpacity style={styles.sendButton}>
+                                <View><Text style={{color: 'white'}}>ثبت</Text></View>
                             </TouchableOpacity>
                         </View>
-                        <View style={styles.commentText}>
-                            <View style={styles.titleComment}><Text
-                                style={[styles.fontSize20, styles.boldFont]}>لورم ایپسوم متن ساختگی با
-                                تولید</Text></View>
-                            <View style={styles.bodyComment}>
-                                <Text style={{lineHeight: 22}}>لورم ایپسوم یا
-                                    طرح‌نما به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته
-                                    می‌شود.
-                                    طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه
-                                    شکل
-                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی
-                                    نوع و
-                                    اندازه فونت و ظاهر متن باشد.معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌های
-                                    آزمایشی و بی‌معنی استفاده می‌کنند.</Text>
+        
+                        <View style={styles.oneComment}>
+                            <View style={styles.emptySpace}>
+                            </View>
+                            <View style={styles.votes}>
+                                <View style={styles.voteCount}>
+                                    <Image
+                                        source={require('../Assets/image/peoplePic.png')}
+                                    />
+                                </View>
+                            </View>
+                            <View style={styles.commentText}>
+                                <View style={styles.titleComment}>
+                                    <Text style={{fontSize: 12, fontWeight: 'bold'}}>{comment.title}</Text>
+                                    <Text style={{fontSize: 12, fontWeight: 'bold', marginRight: 10}}>{comment.date}</Text>
+                                </View>
+                                <View style={styles.bodyComment}>
+                                    <Text style={{lineHeight: 22}}>{comment.commentText}</Text>
+                                </View>
                             </View>
                         </View>
-                    </View>
-                    
-                    {/*Reply Comment*/}
-                    
-                    
-                    <ReplyPeopleComment/>
-                    
-                    {/*Reply Comment End*/}
-                    
-                    
-                    <View>
-                        <View><Text style={{fontSize: 16, fontWeight: 'bold'}}>12 نظر</Text></View>
-                        <View style={styles.messageSection}>
-                            <TextInput placeholder={'نظر خود را بنویسید ...'}></TextInput>
-                        </View>
-                        <View style={styles.sendButton}><Text style={{color: 'white'}}>ثبت</Text></View>
-                    </View>
-                    
-                    <View style={styles.oneComment}>
-                        <View style={styles.emptySpace}>
-                        </View>
-                        <View style={styles.votes}>
-                            <View style={styles.voteCount}>
-                                <Image
-                                    source={require('../Assets/image/peoplePic.png')}
-                                />
+                        <View style={styles.oneComment}>
+                            <View style={styles.emptySpace}>
+                            </View>
+                            <View style={styles.votes}>
+                                <View style={styles.voteCount}>
+                                    <Image
+                                        source={require('../Assets/image/peoplePic.png')}
+                                    />
+                                </View>
+                            </View>
+                            <View style={styles.commentText}>
+                                <View style={styles.titleComment}>
+                                    <Text style={{fontSize: 12, fontWeight: 'bold'}}>{comment.title}</Text>
+                                    <Text style={{fontSize: 12, fontWeight: 'bold', marginRight: 10}}>{comment.date}</Text>
+                                </View>
+                                <View style={styles.bodyComment}>
+                                    <Text style={{lineHeight: 22}}>{comment.commentText}</Text>
+                                </View>
                             </View>
                         </View>
-                        <View style={styles.commentText}>
-                            <View style={styles.titleComment}>
-                                <Text style={{fontSize: 12, fontWeight: 'bold'}}>حمید رضا گلمحمدی</Text>
-                                <Text style={{fontSize: 12, fontWeight: 'bold', marginRight: 10}}>18 مرداد</Text>
-                            </View>
-                            <View style={styles.bodyComment}>
-                                <Text style={{lineHeight: 22}}>لورم ایپسوم یا
-                                    طرح‌نما به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته
-                                    می‌شود.
-                                    طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه
-                                    شکل
-                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی
-                                    نوع و
-                                    اندازه فونت و ظاهر متن باشد.معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌های
-                                    آزمایشی و بی‌معنی استفاده می‌کنند.</Text>
-                            </View>
-                        </View>
-                    </View>
     
-                    <View style={styles.oneComment}>
-                        <View style={styles.emptySpace}>
-                        </View>
-                        <View style={styles.votes}>
-                            <View style={styles.voteCount}>
-                                <Image
-                                    source={require('../Assets/image/peoplePic.png')}
-                                />
-                            </View>
-                        </View>
-                        <View style={styles.commentText}>
-                            <View style={styles.titleComment}>
-                                <Text style={{fontSize: 12, fontWeight: 'bold'}}>حمید رضا گلمحمدی</Text>
-                                <Text style={{fontSize: 12, fontWeight: 'bold', marginRight: 10}}>18 مرداد</Text>
-                            </View>
-                            <View style={styles.bodyComment}>
-                                <Text style={{lineHeight: 22}}>لورم ایپسوم یا
-                                    طرح‌نما به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته
-                                    می‌شود.
-                                    طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه
-                                    شکل
-                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی
-                                    نوع و
-                                    اندازه فونت و ظاهر متن باشد.معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌های
-                                    آزمایشی و بی‌معنی استفاده می‌کنند.</Text>
-                            </View>
-                        </View>
                     </View>
-    
-                    <View style={styles.oneComment}>
-                        <View style={styles.emptySpace}>
-                        </View>
-                        <View style={styles.votes}>
-                            <View style={styles.voteCount}>
-                                <Image
-                                    source={require('../Assets/image/peoplePic.png')}
-                                />
-                            </View>
-                        </View>
-                        <View style={styles.commentText}>
-                            <View style={styles.titleComment}>
-                                <Text style={{fontSize: 12, fontWeight: 'bold'}}>حمید رضا گلمحمدی</Text>
-                                <Text style={{fontSize: 12, fontWeight: 'bold', marginRight: 10}}>18 مرداد</Text>
-                            </View>
-                            <View style={styles.bodyComment}>
-                                <Text style={{lineHeight: 22}}>لورم ایپسوم یا
-                                    طرح‌نما به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته
-                                    می‌شود.
-                                    طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه
-                                    شکل
-                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی
-                                    نوع و
-                                    اندازه فونت و ظاهر متن باشد.معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌های
-                                    آزمایشی و بی‌معنی استفاده می‌کنند.</Text>
-                            </View>
-                        </View>
-                    </View>
-                    <View style={styles.oneComment}>
-                        <View style={styles.emptySpace}>
-                        </View>
-                        <View style={styles.votes}>
-                            <View style={styles.voteCount}>
-                                <Image
-                                    source={require('../Assets/image/peoplePic.png')}
-                                />
-                            </View>
-                        </View>
-                        <View style={styles.commentText}>
-                            <View style={styles.titleComment}>
-                                <Text style={{fontSize: 12, fontWeight: 'bold'}}>حمید رضا گلمحمدی</Text>
-                                <Text style={{fontSize: 12, fontWeight: 'bold', marginRight: 10}}>18 مرداد</Text>
-                            </View>
-                            <View style={styles.bodyComment}>
-                                <Text style={{lineHeight: 22}}>لورم ایپسوم یا
-                                    طرح‌نما به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته
-                                    می‌شود.
-                                    طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه
-                                    شکل
-                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی
-                                    نوع و
-                                    اندازه فونت و ظاهر متن باشد.معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌های
-                                    آزمایشی و بی‌معنی استفاده می‌کنند.</Text>
-                            </View>
-                        </View>
-                    </View>
-    
-                    <View style={styles.oneComment}>
-                        <View style={styles.emptySpace}>
-                        </View>
-                        <View style={styles.votes}>
-                            <View style={styles.voteCount}>
-                                <Image
-                                    source={require('../Assets/image/peoplePic.png')}
-                                />
-                            </View>
-                        </View>
-                        <View style={styles.commentText}>
-                            <View style={styles.titleComment}>
-                                <Text style={{fontSize: 12, fontWeight: 'bold'}}>حمید رضا گلمحمدی</Text>
-                                <Text style={{fontSize: 12, fontWeight: 'bold', marginRight: 10}}>18 مرداد</Text>
-                            </View>
-                            <View style={styles.bodyComment}>
-                                <Text style={{lineHeight: 22}}>لورم ایپسوم یا
-                                    طرح‌نما به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته
-                                    می‌شود.
-                                    طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه
-                                    شکل
-                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی
-                                    نوع و
-                                    اندازه فونت و ظاهر متن باشد.معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌های
-                                    آزمایشی و بی‌معنی استفاده می‌کنند.</Text>
-                            </View>
-                        </View>
-                    </View>
-    
-                    <View style={styles.oneComment}>
-                        <View style={styles.emptySpace}>
-                        </View>
-                        <View style={styles.votes}>
-                            <View style={styles.voteCount}>
-                                <Image
-                                    source={require('../Assets/image/peoplePic.png')}
-                                />
-                            </View>
-                        </View>
-                        <View style={styles.commentText}>
-                            <View style={styles.titleComment}>
-                                <Text style={{fontSize: 12, fontWeight: 'bold'}}>حمید رضا گلمحمدی</Text>
-                                <Text style={{fontSize: 12, fontWeight: 'bold', marginRight: 10}}>18 مرداد</Text>
-                            </View>
-                            <View style={styles.bodyComment}>
-                                <Text style={{lineHeight: 22}}>لورم ایپسوم یا
-                                    طرح‌نما به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته
-                                    می‌شود.
-                                    طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه
-                                    شکل
-                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی
-                                    نوع و
-                                    اندازه فونت و ظاهر متن باشد.معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌های
-                                    آزمایشی و بی‌معنی استفاده می‌کنند.</Text>
-                            </View>
-                        </View>
-                    </View>
-                    
-                    
-                
-                
-                </ScrollView>
-            </View>
+                }
+            />
+  
         );
     }
 }
