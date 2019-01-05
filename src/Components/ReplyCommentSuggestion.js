@@ -2,12 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, FlatList} from 'react-native';
 import replySuggestion from './DataReplyCommentSuggestion';
 
-// let [image,start]=replySuggestion;
-// let aar1 =[{name:'aaa',id:111},{name:'bbb',id:222}];
-// let id = aar1.id;
-let start = replySuggestion[0].start;
-let image = replySuggestion[0].image;
-let [];
+let [reply]=replySuggestion;
 
 export default class ReplyCommentSuggestion extends Component {
     render() {
@@ -18,14 +13,14 @@ export default class ReplyCommentSuggestion extends Component {
                     <View style={styles.replyDetail}>
                         <View style={styles.paddings}>
                             <Image
-                                source={image}
+                                source={reply.image}
                             />
                         </View>
-                        <View style={[styles.lightBluebgcolor, styles.paddings]}>
-                            <Text style={{color: 'white'}}>{start}</Text>
+                        <View style={[styles.lightBluebgcolor, styles.paddings,{paddingHorizontal:5}]}>
+                            <Text style={{color: 'white'}}>{reply.start}</Text>
                         </View>
                         <View style={styles.paddings}>
-                            <Text style={styles.orangeFontColor}> ندا اصلاحی (مدیر محصول پیام گستر)</Text>
+                            <Text style={styles.orangeFontColor}>{reply.responder}</Text>
                         </View>
                         <View style={styles.paddings}>
                             <Text> پاسخ داده است</Text>
