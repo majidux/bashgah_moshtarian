@@ -53,7 +53,46 @@ export default class CommentSuggestion extends Component {
                                 <View><Text style={{color: 'white'}}>ثبت</Text></View>
                             </TouchableOpacity>
                         </View>
-        
+                        <View style={styles.oneComment}>
+                            <View style={styles.emptySpace}>
+                            </View>
+                            <View style={styles.votes}>
+                                <View style={styles.voteCount}>
+                                    <Image
+                                        source={require('../Assets/image/peoplePic.png')}
+                                    />
+                                </View>
+                            </View>
+                            <View style={styles.commentText}>
+                                <View style={styles.titleComment}>
+                                    <Text style={{fontSize: 12, fontWeight: 'bold'}}>{comment.title}</Text>
+                                    <Text style={{fontSize: 12, fontWeight: 'bold', marginRight: 10}}>{comment.date}</Text>
+                                </View>
+                                <View style={styles.bodyComment}>
+                                    <Text style={{lineHeight: 22}}>{comment.commentText}</Text>
+                                </View>
+                            </View>
+                        </View>
+                        <View style={styles.oneComment}>
+                            <View style={styles.emptySpace}>
+                            </View>
+                            <View style={styles.votes}>
+                                <View style={styles.voteCount}>
+                                    <Image
+                                        source={require('../Assets/image/peoplePic.png')}
+                                    />
+                                </View>
+                            </View>
+                            <View style={styles.commentText}>
+                                <View style={styles.titleComment}>
+                                    <Text style={{fontSize: 12, fontWeight: 'bold'}}>{comment.title}</Text>
+                                    <Text style={{fontSize: 12, fontWeight: 'bold', marginRight: 10}}>{comment.date}</Text>
+                                </View>
+                                <View style={styles.bodyComment}>
+                                    <Text style={{lineHeight: 22}}>{comment.commentText}</Text>
+                                </View>
+                            </View>
+                        </View>
                         <View style={styles.oneComment}>
                             <View style={styles.emptySpace}>
                             </View>

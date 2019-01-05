@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image,Picker} from 'react-native';
 
 export default class Sidebar extends Component {
     render() {
@@ -47,6 +47,7 @@ export default class Sidebar extends Component {
                             دسته بندی
                         </Text>
                     </View>
+                    
                     <View style={styles.listMonth}>
                         <View style={styles.listHeader}>
                             <View>
@@ -93,6 +94,8 @@ export default class Sidebar extends Component {
 
                         </View>
                     </View>
+                    
+                    
                 </View>
             </View>
         );
